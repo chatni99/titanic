@@ -1,0 +1,11 @@
+Working with the Titanic dataset ftom Kaggle:
+Steps taken so far:
+1. understand the dataset:
+    - trying to find the NaNs, structure of the dataset
+    - is the data imbalanced
+    - what is the target distribution
+    - embareked is the port of embarkation : C = Cherbourg, Q = Queenstown, S = Southampton
+    - age, cabin,embarked has nulls
+2. working on the data,checking basics:
+    - fare is skewed : need to standardise the fare
+    - 

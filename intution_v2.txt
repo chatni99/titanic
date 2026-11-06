@@ -1,0 +1,28 @@
+Key insights:
+- age ~20% missing : impute with median grouped by Pclass + Sex
+- cabin ~77% missing : dont impute- create HasCabin binary flag
+- embarked 2 missing : impute with mode ('S')
+- class imbalance - ~62/38 split
+    - ROC-AUC and F1, not accuracy.
+    - class_weight='balanced' for LR
+    - scale_pos_weight in XGBoost
+
+
+Woking with the data file:
+
+- observations:
+-- fare is skewed : so log transforming it, to standardize it
+-- discarding features : passengerid, name, ticket,cabin,fare,sibsp,parch
+-- creating new features: familysize(sibsp+parch+1),isAlone(familysize=1),hascabin,fare_log,title(mapping it in certain order)
+
+- preping the data:
+-- creating a pipeline for NUM, Cat cols:
+--- num - simple imputer(median), standardscalar
+--- cat - simple imputer(most_frequent), onehot encoder
+-- creating preprocessor : creating a column transformer with the NUM, CAT pipeline
+
+MOdelling:
+- Model1 = vanilla logistic regression
+-- default parameters : max_iter =1000
+-- cv scores normal - std- 0.02, mean- 0.87, gap- 0.05
+

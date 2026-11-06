@@ -1,0 +1,18 @@
+# Kaggle data: download it yourself (see README)
+train.csv
+test.csv
+
+# local paths / secrets (copy .env.example to .env)
+.env
+
+# saved model pickles
+tmp_models/
+*.pkl
+
+# scratch
+demo.py
+.ipynb_checkpoints/
+.venv/
+
+# Mac
+.DS_Store
